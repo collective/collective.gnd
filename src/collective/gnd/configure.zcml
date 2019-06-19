@@ -46,4 +46,7 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+    <include package=".behaviors" />
+
+
 </configure>

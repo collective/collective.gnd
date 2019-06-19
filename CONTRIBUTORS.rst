@@ -1,4 +1,4 @@
 Contributors
 ============
 
-- Maik Derstappen, md@derico.de
+- Maik Derstappen (MrTango), md@derico.de

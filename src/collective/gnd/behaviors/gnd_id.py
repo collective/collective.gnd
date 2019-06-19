@@ -14,14 +14,19 @@ from zope.interface import provider
 class IGndIdMarker(Interface):
     pass
 
+
 @provider(IFormFieldProvider)
 class IGndId(model.Schema):
     """
     """
 
-    project = schema.TextLine(
-        title=_(u'Project'),
-        description=_(u'Give in a project name'),
+    gnd_id = schema.TextLine(
+        title=_(u"GND-ID"),
+        description=_(
+            u"GND ID, see "
+            u'<a href="https://www.wikidata.org/wiki/Property:P227"'
+            u' target="_blank">https://www.wikidata.org/wiki/Property:P227</a>'
+        ),
         required=False,
     )
 
@@ -33,11 +38,9 @@ class GndId(object):
         self.context = context
 
     @property
-    def project(self):
-        if hasattr(self.context, 'project'):
-            return self.context.project
-        return None
+    def gnd_id(self):
+        return self.context.gnd_id
 
-    @project.setter
-    def project(self, value):
-        self.context.project = value
+    @gnd_id.setter
+    def gnd_id(self, value):
+        self.context.gnd_id = value

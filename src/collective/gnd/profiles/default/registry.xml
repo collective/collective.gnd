@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <registry>
 <!-- -*- extra stuff goes here -*- -->
-
+  <records interface="collective.gnd.controlpanels.gnd_settings.IGndSettings">
+      <value key="message" purge="False"></value>
+      <value key="contact" purge="False"></value>
+      <value key="institution" purge="False"></value>
+      <value key="description" purge="False"></value>
+  </records>
 </registry>

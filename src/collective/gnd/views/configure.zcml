@@ -7,9 +7,9 @@
   -*- extra stuff goes here -*-
 
     <browser:page
-       name="beacon"
-       for="Products.CMFCore.interfaces.IFolderish"
-       class=".beacon_gnd_api.BeaconGndApi"
+       name="beacon-gnd.txt"
+       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+       class=".beacon_gnd.BeaconGnd"
        permission="zope2.View"
        />
 

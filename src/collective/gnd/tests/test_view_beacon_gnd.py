@@ -17,25 +17,20 @@ class ViewsIntegrationTest(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        api.content.create(self.portal, 'Folder', 'other-folder')
         api.content.create(self.portal, 'Document', 'front-page')
 
-    def test_beacon_is_registered(self):
+    def test_beacon_gnd_is_registered(self):
         view = getMultiAdapter(
-            (self.portal['other-folder'], self.portal.REQUEST),
-            name='beacon'
+            (self.portal, self.portal.REQUEST),
+            name='beacon-gnd.txt'
         )
-        self.assertTrue(view.__name__ == 'beacon')
-        # self.assertTrue(
-        #     'Sample View' in view(),
-        #     'Sample View is not found in beacon'
-        # )
+        self.assertTrue(view.__name__ == 'beacon-gnd.txt')
 
-    def test_beacon_not_matching_interface(self):
+    def test_beacon_gnd_not_matching_interface(self):
         with self.assertRaises(ComponentLookupError):
             getMultiAdapter(
                 (self.portal['front-page'], self.portal.REQUEST),
-                name='beacon'
+                name='beacon-gnd.txt'
             )
 
 

@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.0a3 (unreleased)
+1.0b1 (2019-06-20)
 ------------------
 
-- Nothing changed yet.
+- prevent None entries in gnd_ids
+  [MrTango]
 
 
 1.0a2 (2019-06-20)

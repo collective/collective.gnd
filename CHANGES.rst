@@ -4,7 +4,8 @@ Changelog
 1.0b2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix target (gnd resolver) URL in BEACON file
+  [MrTango]
 
 
 1.0b1 (2019-06-20)

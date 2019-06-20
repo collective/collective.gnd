@@ -10,7 +10,7 @@ Features
 - GND ID resolver: ``/resolvegnd/08151111``
 - GND ID Behavior, which provides a ``gnd_id`` field
 - Provides a ``gnd_id`` index
-- BEACON API (BEACON List): /beacon/gnd.txt
+- BEACON API (BEACON List): /beacon-gnd.txt
 
 
 Installation

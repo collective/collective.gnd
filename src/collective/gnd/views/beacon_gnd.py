@@ -27,7 +27,7 @@ class BeaconGnd(BrowserView):
         header_lines.append(u'#FORMAT: BEACON')
         header_lines.append(u'#PREFIX: http://d-nb.info/gnd/')
         header_lines.append(u'#LINK: http://www.w3.org/2000/01/rdf-schema#seeAlso')
-        header_lines.append(u'#TARGET: {0}/beacon/{{ID}}'.format(self.portal_url))
+        header_lines.append(u'#TARGET: {0}/resolvegnd/{{ID}}'.format(self.portal_url))
         header_lines.append(u'#MESSAGE: {0}'.format(self.settings.message))
         header_lines.append(u'#FEED: {0}/beacon-gnd.txt'.format(self.portal_url))
         header_lines.append(u'#CONTACT: {0}'.format(self.settings.contact))

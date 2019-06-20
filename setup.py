@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='collective.gnd',
-    version='1.0b2.dev0',
+    version='1.0b2',
     description="Plone addon which provides a GND resolver and a BEACON API.",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers

@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0b2 (unreleased)
+1.0b2 (2019-06-20)
 ------------------
 
 - Fix target (gnd resolver) URL in BEACON file

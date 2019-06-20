@@ -20,7 +20,7 @@ class BeaconGnd(BrowserView):
     def get_gnd_ids(self):
         catalog = api.portal.get_tool(name='portal_catalog')
         index = catalog._catalog.getIndex('gnd_id')
-        return [id for id in index._index]
+        return [id for id in index._index if id]
 
     def gen_gnd_format(self):
         header_lines = []
@@ -38,5 +38,4 @@ class BeaconGnd(BrowserView):
         gnd_ids = self.get_gnd_ids()
         header_lines.extend(gnd_ids)
         header = u'\n'.join(header_lines)
-        print(header)
         return header

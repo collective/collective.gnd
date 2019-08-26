@@ -39,7 +39,7 @@ class GndId(object):
 
     @property
     def gnd_id(self):
-        return self.context.gnd_id
+        return self.context.gnd_id or ''
 
     @gnd_id.setter
     def gnd_id(self, value):

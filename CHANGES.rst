@@ -4,7 +4,8 @@ Changelog
 1.0b3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix default in gnd_id property in behavior
+  [MrTango]
 
 
 1.0b2 (2019-06-20)

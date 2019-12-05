@@ -15,12 +15,21 @@ class BeaconGnd(BrowserView):
         self.portal_url = self.portal.absolute_url()
         registry = getUtility(IRegistry)
         self.settings = registry.forInterface(IGndSettings)
+        self.request.response.setHeader('Content-Type',
+                                        'text/plain')
         return self.gen_gnd_format()
 
     def get_gnd_ids(self):
         catalog = api.portal.get_tool(name='portal_catalog')
-        index = catalog._catalog.getIndex('gnd_id')
-        return [id for id in index._index if id]
+        if self.settings.render_all:
+            # returns all indexed IDs without security check
+            index = catalog._catalog.getIndex('gnd_id')
+            return [id for id in index._index if id]
+        else:
+            # returns only those IDs of objects accessable to the user
+            brains = catalog(gnd_id={'query': 4, 'range': 'min'},
+                             sort_on='gnd_id')
+            return [brain.gnd_id for brain in brains]
 
     def gen_gnd_format(self):
         header_lines = []

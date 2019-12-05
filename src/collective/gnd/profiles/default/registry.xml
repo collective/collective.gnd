@@ -9,6 +9,7 @@
       <value key="contact" purge="False"></value>
       <value key="institution" purge="False"></value>
       <value key="description" purge="False"></value>
+      <value key="render_all" purge="False"></value>
   </records>
 
   <records prefix="plone.app.querystring.field.gnd_id"

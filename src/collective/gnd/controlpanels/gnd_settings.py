@@ -1,7 +1,7 @@
+# -*- coding: utf-8 -*-
 from collective.gnd import _
 from plone.app.registry.browser import controlpanel
 from plone.z3cform import layout
-from Products.Five.browser import BrowserView
 from zope import schema
 from zope.interface import Interface
 
@@ -37,6 +37,17 @@ class IGndSettings(Interface):
         title=_(u"Description"),
         description=_(u""),
         default=u"",
+        required=False,
+        readonly=False,
+    )
+
+    render_all = schema.Bool(
+        title=_(u"Render all?"),
+        description=_(u"If enabled, all indexed GND-Ids will be listed in "
+                      u"beacon-gnd.txt, wether the target object is accessable"
+                      u" or not. Disable this to ensure security settings "
+                      u" are considered."),
+        default=False,
         required=False,
         readonly=False,
     )

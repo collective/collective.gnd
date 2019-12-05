@@ -3,4 +3,5 @@
   <index name="gnd_id" meta_type="FieldIndex">
     <indexed_attr value="gnd_id" />
   </index>
+  <column value="gnd_id"/>
 </object>

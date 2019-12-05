@@ -15,7 +15,7 @@ class GndResolver(BrowserView):
 
     def __call__(self):
         if not self.gnd_id:
-            return u"could not get GND id"
+            return u"Could not get GND id"
         brains = api.content.find(gnd_id=self.gnd_id)
         if not brains:
             return u"Could not resolve an object for gnd_id: {0}".format(self.gnd_id)

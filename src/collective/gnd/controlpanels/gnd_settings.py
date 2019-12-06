@@ -43,11 +43,21 @@ class IGndSettings(Interface):
 
     render_all = schema.Bool(
         title=_(u"Render all?"),
-        description=_(u"If enabled, all indexed GND-Ids will be listed in "
+        description=_(u"If enabled, all indexed GND-IDs will be listed in "
                       u"beacon-gnd.txt, wether the target object is accessable"
                       u" or not. Disable this to ensure security settings "
                       u" are considered."),
         default=False,
+        required=False,
+        readonly=False,
+    )
+
+    resolver_base_url = schema.URI(
+        title=_(u"Resolver base URL"),
+        description=_(u"If a resolver base URL is specified, the gnd_resolver "
+                      u"service uses this instead of the portal base URL to "
+                      u"build the redirect target URL, e.g. "
+                      u"[http://base.url][/relative/path/to/object]"),
         required=False,
         readonly=False,
     )

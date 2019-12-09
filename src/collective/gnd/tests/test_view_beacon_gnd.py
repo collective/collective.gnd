@@ -22,16 +22,14 @@ class ViewsIntegrationTest(unittest.TestCase):
     def test_beacon_gnd_is_registered(self):
         view = getMultiAdapter(
             (self.portal, self.portal.REQUEST),
-            name='beacon-gnd.txt'
-        )
+            name='beacon-gnd.txt')
         self.assertTrue(view.__name__ == 'beacon-gnd.txt')
 
     def test_beacon_gnd_not_matching_interface(self):
         with self.assertRaises(ComponentLookupError):
             getMultiAdapter(
                 (self.portal['front-page'], self.portal.REQUEST),
-                name='beacon-gnd.txt'
-            )
+                name='beacon-gnd.txt')
 
 
 class ViewsFunctionalTest(unittest.TestCase):

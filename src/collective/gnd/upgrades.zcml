@@ -12,5 +12,14 @@
     handler=".upgrades.reload_gs_profile"
     />
 
+  <genericsetup:upgradeStep
+    source="1001"
+    destination="1002"
+    title="Reload GS profiles to update registry settings and add metadata column gnd_id."
+    description="Already indexed objects with gnd_id will be reindexed to add gnd_id to metadata."
+    profile="collective.gnd:default"
+    handler=".upgrades.to_1002"
+    />
+
 
 </configure>

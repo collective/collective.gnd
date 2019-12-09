@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-
 from collective.gnd import _
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from zope.component import adapter
-from zope.interface import Interface
 from zope.interface import implementer
+from zope.interface import Interface
 from zope.interface import provider
 
 
@@ -20,12 +19,12 @@ class IGndId(model.Schema):
     """
 
     gnd_id = schema.TextLine(
-        title=_(u"GND-ID"),
+        title=_(u'GND-ID'),
         description=_(
-            u"GND ID, see "
+            u'GND ID, see '
             u'<a href="https://www.wikidata.org/wiki/Property:P227"'
-            u' target="_blank">https://www.wikidata.org/wiki/Property:P227</a>'
-        ),
+            u' target="_blank">https://www.wikidata.org/wiki/Property:P227'
+            u'</a>'),
         required=False,
     )
 

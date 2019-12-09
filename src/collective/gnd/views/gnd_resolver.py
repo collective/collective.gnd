@@ -37,13 +37,13 @@ class GndResolver(BrowserView):
         resolver_base_url = api.portal.get_registry_record(
             'resolver_base_url',
             interface=IGndSettings)
-        # TODO: Ensure resolver base URL contains protocol, e.g. https://,
+        # TBD: Ensure resolver base URL contains protocol, e.g. https://,
         # otherwise redirects will not work
         portal_url = api.portal.get().absolute_url()
 
         if not url:
-            raise NotFound("There is no resource available with the specified "
-                           "GND-Identifier.")
+            raise NotFound('There is no resource available with the specified '
+                           'GND-Identifier.')
         # Add possible sub path
         if self.subpath:
             url = '/'.join([url] + self.subpath)

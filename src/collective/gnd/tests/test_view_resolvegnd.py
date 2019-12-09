@@ -23,8 +23,7 @@ class ViewsIntegrationTest(unittest.TestCase):
     def test_resolvegnd_is_registered(self):
         view = getMultiAdapter(
             (self.portal['other-folder'], self.portal.REQUEST),
-            name='resolvegnd'
-        )
+            name='resolvegnd')
         self.assertTrue(view.__name__ == 'resolvegnd')
         # self.assertTrue(
         #     'Sample View' in view(),
@@ -35,8 +34,7 @@ class ViewsIntegrationTest(unittest.TestCase):
         with self.assertRaises(ComponentLookupError):
             getMultiAdapter(
                 (self.portal['front-page'], self.portal.REQUEST),
-                name='resolvegnd'
-            )
+                name='resolvegnd')
 
 
 class ViewsFunctionalTest(unittest.TestCase):

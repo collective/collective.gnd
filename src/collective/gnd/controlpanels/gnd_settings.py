@@ -10,54 +10,54 @@ class IGndSettings(Interface):
     """ Define settings data structure for registry"""
 
     message = schema.TextLine(
-        title=_(u"Message"),
-        description=_(u""),
-        default=u"My Portal",
+        title=_(u'Message'),
+        description=_(u''),
+        default=u'My Portal',
         required=False,
         readonly=False,
     )
 
     contact = schema.TextLine(
-        title=_(u"Contact"),
-        description=_(u""),
-        default=u"firstname lastname <jane@example.com>",
+        title=_(u'Contact'),
+        description=_(u''),
+        default=u'firstname lastname <jane@example.com>',
         required=False,
         readonly=False,
     )
 
     institution = schema.TextLine(
-        title=_(u"Institution"),
-        description=_(u""),
-        default=u"",
+        title=_(u'Institution'),
+        description=_(u''),
+        default=u'',
         required=False,
         readonly=False,
     )
 
     description = schema.TextLine(
-        title=_(u"Description"),
-        description=_(u""),
-        default=u"",
+        title=_(u'Description'),
+        description=_(u''),
+        default=u'',
         required=False,
         readonly=False,
     )
 
     render_all = schema.Bool(
-        title=_(u"Render all?"),
-        description=_(u"If enabled, all indexed GND-IDs will be listed in "
-                      u"beacon-gnd.txt, wether the target object is accessable"
-                      u" or not. Disable this to ensure security settings "
-                      u" are considered."),
+        title=_(u'Render all?'),
+        description=_(u'If enabled, all indexed GND-IDs will be listed in '
+                      u'beacon-gnd.txt, wether the target object is accessable'
+                      u' or not. Disable this to ensure security settings '
+                      u' are considered.'),
         default=False,
         required=False,
         readonly=False,
     )
 
     resolver_base_url = schema.URI(
-        title=_(u"Resolver base URL"),
-        description=_(u"If a resolver base URL is specified, the gnd_resolver "
-                      u"service uses this instead of the portal base URL to "
-                      u"build the redirect target URL, e.g. "
-                      u"[http://base.url][/relative/path/to/object]"),
+        title=_(u'Resolver base URL'),
+        description=_(u'If a resolver base URL is specified, the gnd_resolver '
+                      u'service uses this instead of the portal base URL to '
+                      u'build the redirect target URL, e.g. '
+                      u'[http://base.url][/relative/path/to/object]'),
         required=False,
         readonly=False,
     )
@@ -68,7 +68,7 @@ class GndSettingsEditForm(controlpanel.RegistryEditForm):
     """
 
     schema = IGndSettings
-    label = u"GND Settings"
+    label = u'GND Settings'
 
 
 GndSettingsView = layout.wrap_form(

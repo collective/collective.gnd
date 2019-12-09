@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1 (unreleased)
+1.1 (2019-12-09)
 ----------------
 
 - Added configurable, security related rendering of BEACON file. If registry record render_all is False, only GND-IDs, which are accessable by the requesting user are listed in the BEACON file. Otherwise all indexed values are listed.

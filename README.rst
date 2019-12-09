@@ -18,7 +18,7 @@
 collective.gnd
 ==============
 
-Plone addon which provides a `GND ID <https://www.wikidata.org/wiki/Property:P227>`_ resolver and a `BEACON <http://gbv.github.io/beaconspec/>`_ API.
+Plone add-on which provides a `GND ID <https://www.wikidata.org/wiki/Property:P227>`_ resolver and a `BEACON <http://gbv.github.io/beaconspec/>`_ API.
 
 Features
 --------

@@ -1,13 +1,21 @@
 Changelog
 =========
 
-1.1 (unreleased)
+1.2 (unreleased)
+----------------
+
+- Nothing changed yet.
+
+
+1.1 (2019-12-09)
 ----------------
 
 - Added configurable, security related rendering of BEACON file. If registry record render_all is False, only GND-IDs, which are accessable by the requesting user are listed in the BEACON file. Otherwise all indexed values are listed.
   [ukretschmer]
+
 - Gnd resolver service now has configurable base URL, which allows redirecting to targets with another base URL but the same object path.
   [ukretschmer]
+
 
 1.0 (2019-08-26)
 ----------------

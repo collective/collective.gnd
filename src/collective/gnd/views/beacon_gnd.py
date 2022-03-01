@@ -14,6 +14,8 @@ class BeaconGnd(BrowserView):
         self.portal_url = self.portal.absolute_url()
         self.render_all = api.portal.get_registry_record(
             name='render_all', interface=IGndSettings)
+        self.portal_types = list(api.portal.get_registry_record(
+            name='portal_types', interface=IGndSettings))
         self.message = api.portal.get_registry_record(
             name='message', interface=IGndSettings)
         self.contact = api.portal.get_registry_record(
@@ -28,17 +30,26 @@ class BeaconGnd(BrowserView):
 
     def get_gnd_ids(self):
         catalog = api.portal.get_tool(name='portal_catalog')
+        brains = []
         if self.render_all:
-            # Returns all indexed IDs without security check
-            index = catalog._catalog.getIndex('gnd_id')
-            return [id for id in index._index if id]
+            if self.portal_types:
+                brains = catalog.unrestrictedSearchResults(gnd_id={'query': '', 'range': 'min'}, portal_type=self.portal_types, sort_on='modified')
+            else:
+                brains = catalog.unrestrictedSearchResults(gnd_id={'query': '', 'range': 'min'}, sort_on='modified')
+
         else:
             # Returns only those IDs of objects accessable to the user
-            brains = catalog(gnd_id={'query': 4, 'range': 'min'},
-                             sort_on='gnd_id')
-            return [brain.gnd_id for brain in brains]
+            if self.portal_types:
+                brains = catalog(gnd_id={'query': '', 'range': 'min'}, portal_type=self.portal_types, sort_on='modified')
+            else:
+                brains = catalog(gnd_id={'query': '', 'range': 'min'}, sort_on='modified')
+
+        self.ModificationDate = list(brains)[-1].ModificationDate
+        result = [brain.gnd_id for brain in brains]
+        return result
 
     def gen_gnd_format(self):
+        gnd_ids = self.get_gnd_ids()
         # Build header
         content_dict = [
             u'#FORMAT: BEACON',
@@ -50,11 +61,10 @@ class BeaconGnd(BrowserView):
             u'#CONTACT: {0}'.format(self.contact),
             u'#INSTITUTION: {0}'.format(self.institution),
             u'#DESCRIPTION: {0}'.format(self.description),
-            u'#TIMESTAMP: {0}'.format(datetime.now()),
+            u'#TIMESTAMP: {0}'.format(self.ModificationDate),
             u'#UPDATE: always',
         ]
         # Get and add GND IDs to content
-        gnd_ids = self.get_gnd_ids()
         content_dict.extend(gnd_ids)
         content = u'\n'.join(content_dict)
         return content

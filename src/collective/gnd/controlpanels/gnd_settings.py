@@ -41,6 +41,15 @@ class IGndSettings(Interface):
         readonly=False,
     )
 
+    portal_types = schema.Set(
+        title=_(u'Types to include in beacon list'),
+        description=_(u'Select the types for which the beacon list shall be rendered. If nothing selected, beacon list will contain all objects with gnd id'),
+        value_type=schema.Choice(
+            vocabulary='plone.app.vocabularies.UserFriendlyTypes',
+        ),
+        required=False,
+        readonly=False)
+
     render_all = schema.Bool(
         title=_(u'Render all?'),
         description=_(u'If enabled, all indexed GND-IDs will be listed in '

@@ -43,8 +43,10 @@ class BeaconGnd(BrowserView):
                 brains = catalog(gnd_id={'query': '', 'range': 'min'}, portal_type=self.portal_types, sort_on='modified')
             else:
                 brains = catalog(gnd_id={'query': '', 'range': 'min'}, sort_on='modified')
-
-        self.ModificationDate = list(brains)[-1].ModificationDate
+        if brains:
+            self.ModificationDate = list(brains)[-1].ModificationDate
+        else:
+            self.ModificationDate = datetime.now()
         result = [brain.gnd_id for brain in brains]
         return result
 

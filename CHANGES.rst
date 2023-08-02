@@ -4,7 +4,8 @@ Changelog
 1.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Adding portal_type list to IGndSettings to be able to choose for which portal_type the BEACON list is rendered. The list can be filled with a registry record [muellers]
+- Fixing error on modification date when result list is empty [muellers]
 
 
 1.1 (2019-12-09)

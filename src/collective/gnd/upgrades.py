@@ -20,7 +20,7 @@ def to_1002(context):
     reload_gs_profile(context)
     # AS we added gnd_id to metadata columns, we need to reindex all objects
     # with a gnd_id.
-    brains = api.content.find(gnd_id={'query': 4, 'range': 'min'})
+    brains = api.content.find(gnd_id={'query': '', 'range': 'min'})
     log.info('Start reindexing index gnd_id on {0} objects.'
              .format(len(brains)))
     for brain in brains:

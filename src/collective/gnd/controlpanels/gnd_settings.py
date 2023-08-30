@@ -4,7 +4,8 @@ from plone.app.registry.browser import controlpanel
 from plone.z3cform import layout
 from zope import schema
 from zope.interface import Interface
-
+from z3c.form.browser.orderedselect import OrderedSelectWidget
+from plone.autoform import directives
 
 class IGndSettings(Interface):
     """ Define settings data structure for registry"""
@@ -40,6 +41,17 @@ class IGndSettings(Interface):
         required=False,
         readonly=False,
     )
+
+    portal_types = schema.Set(
+        title=_(u'Types to include in beacon list'),
+        description=_(u'Select the types for which the beacon list shall be rendered. If nothing selected, beacon list will contain all objects with gnd id'),
+        value_type=schema.Choice(
+            vocabulary='plone.app.vocabularies.UserFriendlyTypes',
+        ),
+        required=False,
+        readonly=False)
+
+    directives.widget('portal_types', OrderedSelectWidget)
 
     render_all = schema.Bool(
         title=_(u'Render all?'),
